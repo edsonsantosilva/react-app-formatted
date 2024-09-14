@@ -7,21 +7,41 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "prettier"
+    "plugin:react/jsx-runtime",
+    "prettier",
+    "plugin:import/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": "latest",
+    "ecmaVersion": "15",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react", "prettier"],
-  "rules": {},
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier", "import"],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-use-before-define": ["warn"],
+    "import/extensions": ["warn", "ignorePackages", { "ts": "never", "tsx": "never" }],
+    "import/prefer-default-export": "off",
+    "max-len": ["warn", { "code": 100, "ignoreComments": true, "ignoreUrls": true }],
+    "no-shadow": "off",
+    "no-use-before-define": "warn",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/prop-types": "off"
+  },
   "settings": {
     "import/resolver": {
       "typescript": {}
+    },
+    "react": {
+      "version": "detect",
+      "flowVersion": "0.53"
     }
   }
 }
